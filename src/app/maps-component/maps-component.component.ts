@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { latLng, tileLayer, icon, marker, map } from 'leaflet';
 import { HttpClient } from '@angular/common/http';
+
+
+import { UnServiceService } from '../un-service.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-maps-component',
@@ -8,11 +12,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./maps-component.component.css']
 })
 
-export class MapsComponentComponent implements OnInit {
+export class MapsComponentComponent implements OnInit,OnDestroy {
 
   //waypoints:JSON
-  waypoints = [] 
-  constructor(private http: HttpClient) { }
+  waypoints = []
+  messages: Subscription;
+  constructor(private http: HttpClient,private service:UnServiceService) { }
 
   ngOnInit() {
     const myMap = map('map').setView([39.162911, -101.723353], 4);
@@ -28,7 +33,16 @@ export class MapsComponentComponent implements OnInit {
           marker([current_waypoint.lat, current_waypoint.lng ], {icon: markerIcon}).bindPopup(current_waypoint.label).addTo(myMap);
       }
     });
+
+    this.messages = this.service.messages.subscribe(
+      message => {
+        //on consomme le message
+      });
   }
+
+  ngOnDestroy(){
+   this.messages.unsubscribe()
+ }
   /*
   options = {
     layers: [
