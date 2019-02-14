@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MGPlayer</string>
+    <string-array name="chapter_array">
+        <item>Chapter 1 - Intro</item>
+        <item>Chapter 2 - Title</item>
+        <item>Chapter 3 - Butterflies</item>
+        <item>Chapter 4 - Assault</item>
+        <item>Chapter 5 - Payback</item>
+        <item>Chapter 6 - Cast</item>
+    </string-array>
+    <integer-array name="chapter_integer">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+</resources>
