@@ -10,8 +10,8 @@ import { HttpClient } from '@angular/common/http';
 
 export class MapsComponentComponent implements OnInit {
 
-  waypoints:JSON
-
+  //waypoints:JSON
+  waypoints = [] 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -23,6 +23,7 @@ export class MapsComponentComponent implements OnInit {
     this.http.get('./assets/chapters.json', { responseType: 'json' }).subscribe(data => {
       this.waypoints = data['Waypoints'];
       for (var i = 0; i < this.waypoints.length; i++){
+        //for (var i = 0; i < 8; i++){
           var current_waypoint = this.waypoints[i];
           marker([current_waypoint.lat, current_waypoint.lng ], {icon: markerIcon}).bindPopup(current_waypoint.label).addTo(myMap);
       }

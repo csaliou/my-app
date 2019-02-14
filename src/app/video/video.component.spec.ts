@@ -1,5 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import {HttpClientModule} from '@angular/common/http';
+import {MatMenuModule} from '@angular/material/menu';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
+
 import { VideoComponent } from './video.component';
 import { ChaptersComponent } from '../chapters/chapters.component';
 
@@ -9,6 +15,7 @@ describe('VideoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientModule,MatMenuModule,BrowserAnimationsModule],
       declarations: [ VideoComponent, ChaptersComponent]
     })
     .compileComponents();

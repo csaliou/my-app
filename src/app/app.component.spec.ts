@@ -8,6 +8,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatMenuModule} from '@angular/material/menu';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+import {MapsComponentComponent} from "./maps-component/maps-component.component";
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -20,7 +22,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         VideoComponent,
-        ChaptersComponent
+        ChaptersComponent,
+        MapsComponentComponent
       ],
     }).compileComponents();
   }));
@@ -34,7 +37,7 @@ describe('AppComponent', () => {
   it(`should have as title 'my-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('my-app');
+    expect(app.title).toEqual("Saliou et Guillaume");
   });
 
   it('should render title in a h1 tag', () => {
